@@ -1,21 +1,21 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { SignIn, CreateAccount } from './App/Screens';
+import { createSwitchNavigator, createAppContainer } from 'react-navigation';
+import { SignIn } from './screens/signIn';
+import { CreateAccount } from './screens/createAccount';
+import * as firebase from 'firebase';
+import { firebaseConfig } from './config';
 
-const AuthStack = createStackNavigator();
+firebase.initializeApp(firebaseConfig)
 
-export default () => (
-    <NavigationContainer>
-      <AuthStack.Navigator headerMode='none'>
-        <AuthStack.Screen name='SignIn' 
-        component = {SignIn} 
-        options={{title: "Sign In"}}
-        />
-        <AuthStack.Screen name='CreateAccount' 
-        component = {CreateAccount}
-        options={{title: "Create Account"}} />
-      </AuthStack.Navigator>
-    </NavigationContainer>
-);
+const AuthSwitch = createSwitchNavigator({
+  SignIn: SignIn, 
+  CreateAccount: CreateAccount
+});
+
+const AuthNav = createAppContainer(AuthSwitch);
+
+export default () => {
+    return <AuthNav />
+};
+
 
