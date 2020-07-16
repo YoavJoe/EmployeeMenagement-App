@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
-import { globalStyles } from '../Style/global';
-import * as firebase from 'firebase';
+import { GlobalStyles } from '../Style/global';
+import * as Firebase from 'firebase';
 
-export const LodingScreen = () => {
-    
-    chackIfLoogedIn = () => {
-        firebase.auth().onAuthStateChanged(user => {
-            if(user) { 
-
-            } else {
-                this.props.navigation.navigate('SignIn');
-            }
-        });
-    };
-    return <View style={globalStyles.container}>
+export const LodingScreen = ({ navigation }) => {
+    Firebase.auth().onAuthStateChanged(user => {
+    if(user) {
+        navigation.navigate("EmployeeList");
+    }
+    else {
+        navigation.navigate("SignIn");
+    }
+   })
+    return <View style={GlobalStyles.container}>
         <ActivityIndicator size="large" />
     </View>
   };

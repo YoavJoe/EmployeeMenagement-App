@@ -1,5 +1,5 @@
 // Initialize Firebase
-export const firebaseConfig = {
+export const FirebaseConfig = {
     apiKey: "AIzaSyB_bcpR0gdp342AyfxZt_nTt7vlb6g0KF8",
     authDomain: "employeemanagement-app.firebaseapp.com",
     databaseURL: "https://employeemanagement-app.firebaseio.com",
