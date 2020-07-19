@@ -37,28 +37,30 @@ export const GlobalStyles = StyleSheet.create({
         textAlign: 'center',
         color: '#FFF',
         fontWeight: '700'
-    },card: {
-        borderRadius: 6,
-        elevation: 6,
-        flex: 1,
-        padding: 20,
-        backgroundColor: '#fff',
+    },
+    card: {
+        flex: 0.45,
+        borderRadius: 8,
+        shadowRadius: 25,
+        shadowColor: "black",
+        shadowOpacity: 0.08,
+        shadowOffset: { width: 0, height: 0 },
         justifyContent: 'center',
-        shadowOffset: {width: 1, height: 1},
-        shadowColor: '#333',
-        shadowOpacity: 0.3,
-        shadowRadius: 2,
-        marginHorizontal: 4,
-        marginVertical: 6
+        alignItems: 'center',
+        backgroundColor: "white",
+        marginBottom: 20
       },
       cardContent: {
         marginHorizontal: 18,
         marginVertical: 10
       },
       cardsWrapper: {
-          flex: 1,
-          flexDirection: 'column',
-          justifyContent: 'space-between'
-      }
-
+        flex: 1,
+        justifyContent: 'center',
+        padding: 20,
+      },
+      rightAction: {
+          justifyContent: 'center',
+          alignItems: 'flex-end'
+      },
 });
