@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { View,Text, TextInput , TouchableOpacity, Button, } from 'react-native';
+import { View,Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { GlobalStyles } from '../Style/global';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+import { AntDesign, MaterialIcons} from '@expo/vector-icons'; 
 
 export const Card = (props) => {
   const[iseditmode, setIsEditMode] = useState(false)
@@ -31,7 +33,20 @@ export const Card = (props) => {
       return data.data})
   .catch(error => console.log('ERROR', error))
   }
-
+  const AlartDelete = () => {
+    Alert.alert(
+      "Are you sure you want to delete this employee?"
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "Sure, delete him!!!", onPress: Delete() }
+      ],
+      { cancelable: false }
+    );
+  }
   const Delete = () => {
     return fetch('http://dummy.restapiexample.com/api/v1/delete/' + props.item.id, {
       method: 'DELETE',
@@ -47,16 +62,34 @@ export const Card = (props) => {
   .catch(error => console.log('ERROR', error))
   }
 
+  const LeftAction = () => {
+    return (
+      <View style={GlobalStyles.cardsWrapper}> 
+        <AntDesign name="edit" size={60} color="black" />
+      </View>
+    )
+  }
+  const RightAction = () => {
+    return (
+      <View style={GlobalStyles.rightAction}> 
+        <MaterialIcons name="delete" size={60} color="black" />
+      </View>
+    )
+  }
+
   return ( !iseditmode? 
-  <View style={GlobalStyles.card}>
-    <View style={GlobalStyles.cardContent}>
-      <Text style={GlobalStyles.cardtext}>Name: {name}</Text>
-      <Text style={GlobalStyles.cardtext}>Salary: {salary}</Text>
-      <Text style={GlobalStyles.cardtext}>Age: {age}</Text>              
-    </View>
-    <Button title="Edit" onPress={()=> setIsEditMode(true)}/>
-    <Button title="Delete" onPress={()=> Delete()}/>
-  </View> : 
+    <Swipeable
+      renderLeftActions={LeftAction}
+      onSwipeableLeftOpen={EditData}
+      renderRightActions={RightAction} 
+      onSwipeableRightOpen={AlartDelete}>
+      <View style={GlobalStyles.card}>
+          <Text style={GlobalStyles.cardtext}>Name: {name}</Text>
+          <Text style={GlobalStyles.cardtext}>Salary: {salary}</Text>
+          <Text style={GlobalStyles.cardtext}>Age: {age}</Text>              
+      </View> 
+    </Swipeable>
+  : 
   <View>
     <TextInput 
         style={GlobalStyles.input}
