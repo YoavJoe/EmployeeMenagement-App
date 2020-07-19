@@ -27,7 +27,7 @@ export const EmployeeList = ({ navigation }) => {
             onPress={() => {navigation.navigate("AddNewEmployee")}}>
                 <Text style={GlobalStyles.buttonText}>Add New Employee</Text>
             </TouchableOpacity>
-            <View style={GlobalStyles.cardsWrapper}>
+            <View>
                 {data.map((item)=><Card key={item.id} item={item} />)}
             </View>
             <TouchableOpacity 
