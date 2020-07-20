@@ -21,7 +21,7 @@ export const GlobalStyles = StyleSheet.create({
         color: '#FFF',
         paddingHorizontal: 10
     },
-    cardtext: {
+    cardheder: {
         fontWeight:"bold",
         fontSize: 30,
         marginBottom: 20,
@@ -56,11 +56,15 @@ export const GlobalStyles = StyleSheet.create({
       },
       cardsWrapper: {
         flex: 1,
-        justifyContent: 'center',
-        padding: 20,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
       },
       rightAction: {
           justifyContent: 'center',
           alignItems: 'flex-end'
       },
+      cardtext: {
+        color: 'textSecondary',
+        fontFamily: 'body2'
+    }
 });

@@ -78,17 +78,22 @@ export const Card = (props) => {
   }
 
   return ( !iseditmode? 
-    <Swipeable
-      renderLeftActions={LeftAction}
-      onSwipeableLeftOpen={EditData}
-      renderRightActions={RightAction} 
-      onSwipeableRightOpen={AlartDelete}>
       <View style={GlobalStyles.card}>
-          <Text style={GlobalStyles.cardtext}>Name: {name}</Text>
-          <Text style={GlobalStyles.cardtext}>Salary: {salary}</Text>
-          <Text style={GlobalStyles.cardtext}>Age: {age}</Text>              
+          <Text style={GlobalStyles.cardheder}>Name</Text>
+          <Text style={GlobalStyles.cardtext}>{name}</Text>
+          <Text style={GlobalStyles.cardheder}>Salary</Text>
+          <Text style={GlobalStyles.cardtext}>{salary}</Text>
+          <Text style={GlobalStyles.cardheder}>Age</Text>
+          <Text style={GlobalStyles.cardtext}>{age}</Text>
+          <View style={GlobalStyles.cardsWrapper}>
+            <TouchableOpacity onPress={()=>EditData()}>
+              <AntDesign name="edit" size={30} color="black" />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>Delete()}>
+              <MaterialIcons name="delete" size={30} color="black" />
+            </TouchableOpacity>
+          </View>
       </View> 
-    </Swipeable>
   : 
   <View>
     <TextInput 
