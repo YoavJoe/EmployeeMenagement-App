@@ -3,6 +3,7 @@ import { View,Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { GlobalStyles } from '../Style/global';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { AntDesign, MaterialIcons} from '@expo/vector-icons'; 
+import { color } from "react-native-reanimated";
 
 export const Card = (props) => {
   const[iseditmode, setIsEditMode] = useState(false)
@@ -84,9 +85,12 @@ export const Card = (props) => {
       renderRightActions={RightAction} 
       onSwipeableRightOpen={AlartDelete}>
       <View style={GlobalStyles.card}>
-          <Text style={GlobalStyles.cardtext}>Name: {name}</Text>
-          <Text style={GlobalStyles.cardtext}>Salary: {salary}</Text>
-          <Text style={GlobalStyles.cardtext}>Age: {age}</Text>              
+          <Text style={GlobalStyles.cardheder}>Name</Text>
+          <Text style={GlobalStyles.cardtext}>{name}</Text>
+          <Text style={GlobalStyles.cardheder}>Salary</Text>
+          <Text style={GlobalStyles.cardtext}>{salary}</Text>
+          <Text style={GlobalStyles.cardheder}>Age</Text> 
+          <Text style={GlobalStyles.cardtext}>{age}</Text>              
       </View> 
     </Swipeable>
   : 
