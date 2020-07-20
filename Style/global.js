@@ -63,4 +63,9 @@ export const GlobalStyles = StyleSheet.create({
           justifyContent: 'center',
           alignItems: 'flex-end'
       },
+      cardheder: {
+          color: 'textSecondary',
+          fontVariant: 'body2'
+
+      }
 });
