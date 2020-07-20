@@ -3,6 +3,7 @@ import { View,Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { GlobalStyles } from '../Style/global';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { AntDesign, MaterialIcons} from '@expo/vector-icons'; 
+import { color } from "react-native-reanimated";
 
 export const Card = (props) => {
   const[iseditmode, setIsEditMode] = useState(false)
@@ -83,6 +84,7 @@ export const Card = (props) => {
           <Text style={GlobalStyles.cardtext}>{name}</Text>
           <Text style={GlobalStyles.cardheder}>Salary</Text>
           <Text style={GlobalStyles.cardtext}>{salary}</Text>
+<<<<<<< HEAD
           <Text style={GlobalStyles.cardheder}>Age</Text>
           <Text style={GlobalStyles.cardtext}>{age}</Text>
           <View style={GlobalStyles.cardsWrapper}>
@@ -93,6 +95,10 @@ export const Card = (props) => {
               <MaterialIcons name="delete" size={30} color="black" />
             </TouchableOpacity>
           </View>
+=======
+          <Text style={GlobalStyles.cardheder}>Age</Text> 
+          <Text style={GlobalStyles.cardtext}>{age}</Text>              
+>>>>>>> 4624c149bdece4cad138cb6f0f26c2f290e68fca
       </View> 
   : 
   <View>

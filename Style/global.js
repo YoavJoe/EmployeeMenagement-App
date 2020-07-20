@@ -63,8 +63,16 @@ export const GlobalStyles = StyleSheet.create({
           justifyContent: 'center',
           alignItems: 'flex-end'
       },
+<<<<<<< HEAD
       cardtext: {
         color: 'textSecondary',
         fontFamily: 'body2'
     }
+=======
+      cardheder: {
+          color: 'textSecondary',
+          fontVariant: 'body2'
+
+      }
+>>>>>>> 4624c149bdece4cad138cb6f0f26c2f290e68fca
 });
